@@ -3,6 +3,7 @@ class UsersOtpController < ApplicationController
   def enable
     current_user.otp_secret = User.generate_otp_secret
     current_user.otp_required_for_login = true
+    current_user.type_otp = :email
     current_user.save!
     redirect_back(fallback_location:root_path)
   end
