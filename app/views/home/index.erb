@@ -1,0 +1,7 @@
+<p>You're logged in</p>
+
+<%= link_to "logout", destroy_user_session_path, :method => :delete %>
+
+<% if !current_user.otp_required_for_login %>
+  <%=link_to "Habilitar 2FA", users_otp_enable_path, method: :patch%>
+<%end%>
